@@ -2,81 +2,79 @@
 #include "stdbool.h"
 
 /**
- * swap_node_ahead - Swap a node in a listint_t doubly-linked list
- *                   list of integers with the node ahead of it.
- * @list: A pointer to the head of a doubly-linked list of integers.
- * @tail: A pointer to the tail of the doubly-linked list.
- * @cocksha: A pointer to the current swapping node of the cocktail cocksha algo.
+ * swana - Swap a node in a listint_t doubly-linked list
+ * @list: A pointer to the head
+ * @tail: A pointer to the tail
+ * @cocksha: A pointer to the current
  */
-void swap_node_ahead(listint_t **list, listint_t **tail, listint_t **cocksha)
+void swana(listint_t **list, listint_t **tail, listint_t **cocksha)
 {
-    listint_t *t = (*cocksha)->next;
+	listint_t *t = (*cocksha)->next;
 
-    switch ((*cocksha)->prev != NULL)
-    {
-        case true:
-            (*cocksha)->prev->next = t;
-            break;
-        case false:
-            *list = t;
-            break;
-    }
+	switch ((*cocksha)->prev != NULL)
+	{
+		case true:
+			(*cocksha)->prev->next = t;
+			break;
+		case false:
+			*list = t;
+			break;
+	}
 
-    t->prev = (*cocksha)->prev;
-    (*cocksha)->next = t->next;
+	t->prev = (*cocksha)->prev;
+	(*cocksha)->next = t->next;
 
-    switch (t->next != NULL)
-    {
-        case true:
-            t->next->prev = *cocksha;
-            break;
-        case false:
-            *tail = *cocksha;
-            break;
-    }
+	switch (t->next != NULL)
+	{
+		case true:
+			t->next->prev = *cocksha;
+			break;
+		case false:
+			*tail = *cocksha;
+			break;
+	}
 
-    (*cocksha)->prev = t;
-    t->next = *cocksha;
-    *cocksha = t;
+	(*cocksha)->prev = t;
+	t->next = *cocksha;
+	*cocksha = t;
 }
 
 /**
- * swap_node_behind - Swap a node in a listint_t doubly-linked
- *                    list of integers with the node behind it.
- * @list: A pointer to the head of a doubly-linked list of integers.
+ * swanb - Swap a node in a listint_t doubly-linked.
+ * @list: A pointer to the head of a doubly-linked list
  * @tail: A pointer to the tail of the doubly-linked list.
- * @cocksha: A pointer to the current swapping node of the cocktail cocksha algo.
+ * @cocksha: A pointer to the current swapping node
  */
-void swap_node_behind(listint_t **list, listint_t **tail, listint_t **cocksha)
+void swanb(listint_t **list, listint_t **tail, listint_t **cocksha)
 {
-    listint_t *t = (*cocksha)->prev;
+	listint_t *t = (*cocksha)->prev;
 
-    switch ((*cocksha)->next != NULL)
-    {
-        case true:
-            (*cocksha)->next->prev = t;
-            break;
-        case false:
-            *tail = t;
-            break;
-    }
+	switch ((*cocksha)->next != NULL)
+	{
+		case true:
+			(*cocksha)->next->prev = t;
+			break;
+		case false:
+			*tail = t;
+			break;
+	}
 
-    t->next = (*cocksha)->next;
-    (*cocksha)->prev = t->prev;
+	t->next = (*cocksha)->next;
+	(*cocksha)->prev = t->prev;
 
-    switch (t->prev != NULL)
-    {
-        case true:
-            t->prev->next = *cocksha;
-            break;
-        case false:
-            *list = *cocksha;
-            break;
-    }
+	switch (t->prev != NULL)
+	{
+		case true:
+			t->prev->next = *cocksha;
+			break;
+		case false:
+			*list = *cocksha;
+			break;
+	}
 
-    (*cocksha)->next = t;
-    t->prev = *cocksha;
-    *cocksha = t;
+	(*cocksha)->next = t;
+	t->prev = *cocksha;
+	*cocksha = t;
 }
 
 /**
@@ -102,7 +100,7 @@ void cocktail_sort_list(listint_t **list)
 		{
 			if (s->n > s->next->n)
 			{
-				swap_node_ahead(list, &t, &s);
+				swana(list, &t, &s);
 				print_list((const listint_t *)*list);
 				shu = false;
 			}
@@ -111,7 +109,7 @@ void cocktail_sort_list(listint_t **list)
 		{
 			if (s->n < s->prev->n)
 			{
-				swap_node_behind(list, &t, &s);
+				swanb(list, &t, &s);
 				print_list((const listint_t *)*list);
 				shu = false;
 			}

@@ -26,7 +26,7 @@ void bubble_sort(int *array, size_t size);
 void insertion_sort_list(listint_t **list);
 void quick_sort(int *array, size_t size);
 void selection_sort(int *array, size_t size);
-size_t part(int array[], size_t size);
+size_t sega(int array[], size_t size);
 void s_rt(int array[], size_t size, int firs);
 
 

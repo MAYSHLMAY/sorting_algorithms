@@ -16,7 +16,7 @@ void quick_sort(int *array, size_t size)
 
 	s_rt(array, size, 1);
 
-	pivot = part(array, size);
+	pivot = sega(array, size);
 
 	quick_sort(array, pivot);
 
@@ -25,13 +25,13 @@ void quick_sort(int *array, size_t size)
 
 
 /**
- * part - Function that sets the pivot
+ * sega - Function that sets the pivot
  *
- * @array: Array to part
+ * @array: Array to sega
  * @size: Size of arr
  * Return: (a + 1)
  */
-size_t part(int array[], size_t size)
+size_t sega(int array[], size_t size)
 {
 	int pivot;
 	size_t smaller = 0;

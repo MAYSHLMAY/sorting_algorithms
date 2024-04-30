@@ -12,21 +12,21 @@ void insertion_sort_list(listint_t **list)
 		return;
 
 	live = *list;
-	for (live = live->follow; live != NULL; live = live->follow)
+	for (live = live->next; live != NULL; live = live->next)
 	{
 		gat = live;
 		for (; gat->prev && gat->n < gat->prev->n; gat = gat->prev)
 		{
 			prior = gat->prev;
-			if (gat->follow)
-				gat->follow->prev = prior;
+			if (gat->next)
+				gat->next->prev = prior;
 			if (prior->prev)
-				prior->prev->follow = gat;
+				prior->prev->next = gat;
 			else
 				*list = gat;
-			prior->follow = gat->follow;
+			prior->next = gat->next;
 			gat->prev = prior->prev;
-			gat->follow = prior;
+			gat->next = prior;
 			prior->prev = gat;
 
 			print_list(*list);

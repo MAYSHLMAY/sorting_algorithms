@@ -6,15 +6,15 @@
  */
 void insertion_sort_list(listint_t **list)
 {
-	listint_t *crnt, *gat, *prv;
+	listint_t *live, *gat, *prv;
 
 	if (!list || !*list)
 		return;
 
-	crnt = *list;
-	for (crnt = crnt->next; crnt != NULL; crnt = crnt->next)
+	live = *list;
+	for (live = live->next; live != NULL; live = live->next)
 	{
-		gat = crnt;
+		gat = live;
 		while (gat->prev && gat->n < gat->prev->n)
 		{
 			prv = gat->prev;

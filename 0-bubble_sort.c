@@ -8,25 +8,25 @@
  */
 void bubble_sort(int *array, size_t size)
 {
-	unsigned int pass = 0;
-	unsigned int current_index;
+	unsigned int ps = 0;
+	unsigned int cidx;
 
 	if (!array)
 		return;
 
-	while (pass < size - 1)
+	while (ps < size - 1)
 	{
-		current_index = 0;
-		while (current_index < size - pass - 1)
+		cidx = 0;
+		while (cidx < size - ps - 1)
 		{
-			if (array[current_index] > array[current_index + 1])
+			if (array[cidx] > array[cidx + 1])
 			{
-				gat(&array[current_index], &array[current_index + 1]);
+				gat(&array[cidx], &array[cidx + 1]);
 				print_array(array, size);
 			}
-			current_index++;
+			cidx++;
 		}
-		pass++;
+		ps++;
 	}
 }
 

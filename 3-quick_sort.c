@@ -33,36 +33,36 @@ void quick_sort(int *array, size_t size)
  */
 size_t part(int array[], size_t size)
 {
-    int pivot;
-    size_t smaller = 0;
-    size_t current = 0;
+	int pivot;
+	size_t smaller = 0;
+	size_t current = 0;
 
-    if (!array || size < 2)
-        return 0;
+	if (!array || size < 2)
+		return (0);
 
-    pivot = array[size - 1];
+	pivot = array[size - 1];
 
-    while (current < size - 1)
-    {
-        if (array[current] <= pivot)
-        {
-            if (smaller != current)
-            {
-                gat(&array[smaller], &array[current]);
-                s_rt(array, size, 0);
-            }
-            smaller++;
-        }
-        current++;
-    }
+	while (current < size - 1)
+	{
+		if (array[current] <= pivot)
+		{
+			if (smaller != current)
+			{
+				gat(&array[smaller], &array[current]);
+				s_rt(array, size, 0);
+			}
+			smaller++;
+		}
+		current++;
+	}
 
-    if (smaller != size - 1)
-    {
-        gat(&array[smaller], &array[size - 1]);
-        s_rt(array, size, 0);
-    }
+	if (smaller != size - 1)
+	{
+		gat(&array[smaller], &array[size - 1]);
+		s_rt(array, size, 0);
+	}
 
-    return smaller;
+	return (smaller);
 }
 
 /**
@@ -74,7 +74,7 @@ size_t part(int array[], size_t size)
  */
 void s_rt(int array[], size_t size, int firs)
 {
-	static int *a = NULL;
+	static int *a;
 	static size_t b;
 
 	if (!a && firs)
@@ -90,7 +90,7 @@ void s_rt(int array[], size_t size, int firs)
  * gat - Function that swaps two values
  *
  * @n1: Fisrt value
- * @num2: Second value
+ * @n2: Second value
  * Return: 0
  */
 void gat(int *n1, int *n2)

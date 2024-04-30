@@ -19,7 +19,7 @@ typedef struct listint_s
 
 
 void gat(int *n1, int *n2);
-void heapify(int *array, int ed, int strt, size_t size);
+void heapify(int *array, int ed, int firs, size_t size);
 
 
 void bubble_sort(int *array, size_t size);
@@ -27,7 +27,7 @@ void insertion_sort_list(listint_t **list);
 void quick_sort(int *array, size_t size);
 void selection_sort(int *array, size_t size);
 size_t part(int array[], size_t size);
-void ob_sort(int array[], size_t size, int strt);
+void s_rt(int array[], size_t size, int firs);
 
 
 void shell_sort(int *array, size_t size);

@@ -6,28 +6,28 @@
  */
 void insertion_sort_list(listint_t **list)
 {
-	listint_t *live, *gat, *prior;
+	listint_t *crnt, *gat, *prv;
 
 	if (!list || !*list)
 		return;
 
-	live = *list;
-	for (live = live->next; live != NULL; live = live->next)
+	crnt = *list;
+	for (crnt = crnt->next; crnt != NULL; crnt = crnt->next)
 	{
-		gat = live;
-		for (; gat->prev && gat->n < gat->prev->n; gat = gat->prev)
+		gat = crnt;
+		while (gat->prev && gat->n < gat->prev->n)
 		{
-			prior = gat->prev;
+			prv = gat->prev;
 			if (gat->next)
-				gat->next->prev = prior;
-			if (prior->prev)
-				prior->prev->next = gat;
+				gat->next->prev = prv;
+			if (prv->prev)
+				prv->prev->next = gat;
 			else
 				*list = gat;
-			prior->next = gat->next;
-			gat->prev = prior->prev;
-			gat->next = prior;
-			prior->prev = gat;
+			prv->next = gat->next;
+			gat->prev = prv->prev;
+			gat->next = prv;
+			prv->prev = gat;
 
 			print_list(*list);
 		}

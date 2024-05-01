@@ -1,26 +1,26 @@
 #include "sort.h"
 
-/**
- * compare - Create param for qsort
- * @a: fir num
- * @b: sec num
- * Return: num
- */
-int compare(const void *a, const void *b)
-{
-	return (*(int *)a - *(int *)b);
-}
+
 
 /**
  * maxsteel - Find val_of_max in arr of ints
  * @array: array to find val_of_max val
  * @size: size of the array
- * Return: 0
+ * Return: max
  */
 int maxsteel(int *array, int size)
 {
-	qsort(array, size, sizeof(int), compare);
-	return (array[size - 1]);
+	int max = array[0];
+	int index = 1;
+
+	while (index < size)
+	{
+		if (array[index] > max)
+			max = array[index];
+		index++;
+	}
+
+	return (max);
 }
 
 /**

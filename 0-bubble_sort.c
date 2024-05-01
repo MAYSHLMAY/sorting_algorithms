@@ -40,9 +40,9 @@ void bubble_sort(int *array, size_t size)
  */
 void gat(int *n1, int *n2)
 {
-	int tp;
+	int tempo;
 
-	tp = *n2;
+	tempo = *n2;
 	*n2 = *n1;
-	*n1 = tp;
+	*n1 = tempo;
 }
